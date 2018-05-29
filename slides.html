@@ -820,7 +820,7 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Exercise 3: Smarter Weather (20mins)
+        ## Exercise 3: Smarter Weather (15mins)
 
         Instead of telling your program if it's cold, you can input the temperature and let it decide what to do.
 
@@ -909,16 +909,16 @@
         weather_conditions[0]
         weather_conditions[3]
         weather_conditions[10]
-       ```
+        ```
 
-       What Happened?
+        What Happened?
 
         ```python
         Traceback (most recent call last):
            File "<input>", line 1, in <module>
         IndexError: list index out of range
           ```
-    Python cannot find weather_conditions[10] because it does not exist.
+        Python cannot find weather_conditions[10] because it does not exist.
 
 
       </script>
@@ -926,39 +926,39 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Loops
+        # Loops
 
-          One of the most powerful tools we have as programmers is having a computer repeat the same instruction for us many times.
+        One of the most powerful tools we have as programmers is having a computer repeat the same instruction for us many times.
 
-          Python can access each item in a list in order, and do something with each item.
+        Python can access each item in a list in order, and do something with each item.
 
-    ```python
-    my_list = ['some','items']
-    for member in my_list:
-       # do something
-       # python will do all of this indented code for each item
+        ```python
+        my_list = ['some','items']
+        for member in my_list:
+           # do something
+           # python will do all of this indented code for each item
 
-    ```
-    Print all of the items in the list:
-          ```python
-    weather_conditions = ['rainy', 'snowing', 'cloudy','sunny','foggy']
+        ```
+        Print all of the items in the list:
+              ```python
+        weather_conditions = ['rainy', 'snowing', 'cloudy','sunny','foggy']
 
-    for condition in weather_conditions:
-      print condition
+        for condition in weather_conditions:
+          print condition
 
-         ```
+             ```
 
-    Perform some math on each item in the list:
-         ```python
-        numbers = [5,11,66,22.5]
+        Perform some math on each item in the list:
+             ```python
+            numbers = [5,11,66,22.5]
 
-        for number in numbers:
-           result = number * 2
-           print str(number) +' x 2 = ' + str(result)
+            for number in numbers:
+               result = number * 2
+               print str(number) +' x 2 = ' + str(result)
 
-    ```
+        ```
 
-    </script>
+      </script>
     </section>
 
     <section class="slide" data-markdown>
