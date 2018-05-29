@@ -642,7 +642,9 @@
         >>> weather = "raining"
         ```
 
-        The double equals symbol (`==`) will evaluate if the value on the right matches the *assigned* value and can be used to test the values.
+        The double equals symbol (`==`) will compare 2 values.
+
+        Is the value inside the variable `weather` the same as the string `"cold"`?
         ```
         >>> weather == "cold"
         False
@@ -818,16 +820,16 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Exercise 3: Smarter Weather (15mins)
+        ## Exercise 3: Smarter Weather (20mins)
 
         Instead of telling your program if it's cold, you can input the temperature and let it decide what to do.
 
-        * open the existing `ex3_smarter_weather.py` file
-        * use math comparison operators, `and`/`or` to complete the exercise
-        * follow the instructions in the comments
-        * feel free to choose your own temperatures and messages :)
+        * Create a new python file and copy this contents:
 
         ```
+        # Remember, we get a string from input/raw_input, but we need an int to compare it
+        weather = int(raw_input("What temperature is it now? (as a number, please): "))
+
         # if the weather is greater than or equal to 25 degrees
         if [replace this with the right condition]:
             print("Go to the beach!")
@@ -837,180 +839,184 @@
         else:
             # Print "Wear a sweater and dream of beaches."
         ```
+        * use math comparison operators, `and`/`or` to complete the exercise
+        * follow the instructions in the comments
+        * feel free to choose your own temperatures and messages :)
 
 
       </script>
     </section>
+
+    <!-- -------------------- -->
+    <!-- Intro to lists -->
+    <!-- -------------------- -->
 
     <section class="slide title" data-markdown>
       <script type="text/template">
-        # Lunch!
+        # Intro to Lists
       </script>
     </section>
-<!-- -------------------- -->
-<!-- Intro to lists -->
-<!-- -------------------- -->
 
-<section class="slide" data-markdown>
-  <script type="text/template">
-    ## Lists
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        ## Lists
 
-    When we have collections of similar things, we might store them in a **list**
+        When we have collections of similar things, we might store them in a **list**
+
+        ```python
+        weather_conditions = ['rainy', 'snowing', 'cloudy','sunny','foggy']
+
+        ```
+
+        ```python
+        provinces = ['BC', 'AB', 'SK','MB','ON','QC','NL,','NB','NS','PE','YT','NT','NU']
+
+       ```
+       ```python
+    to_do_list = ['Water plants','Clean bathroom','Buy shoes','Solve climate change']
+
+         ```
+
+       ```python
+    prime_numbers = [2,3,5,7,11,13]
+
+      ```
+
+        In python, the items in the list can be different data types.
+
+        ```python
+        different_data_types = [3.14,'Canada', 22/7, 1729]
+
+          ```
+
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        ## Using Lists
+
+        Items in a list can be accessed one at a time.
+
+        They are **indexed** (counted) starting at 0.
+
+        ```python
+         weather_conditions = ['rainy', 'snowing', 'cloudy','sunny','foggy']
+
+        ```
+        Try these in the python console:
+        ```python
+        weather_conditions[0]
+        weather_conditions[3]
+        weather_conditions[10]
+       ```
+
+       What Happened?
+
+        ```python
+        Traceback (most recent call last):
+           File "<input>", line 1, in <module>
+        IndexError: list index out of range
+          ```
+    Python cannot find weather_conditions[10] because it does not exist.
+
+
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        ## Loops
+
+          One of the most powerful tools we have as programmers is having a computer repeat the same instruction for us many times.
+
+          Python can access each item in a list in order, and do something with each item.
 
     ```python
+    my_list = ['some','items']
+    for member in my_list:
+       # do something
+       # python will do all of this indented code for each item
+
+    ```
+    Print all of the items in the list:
+          ```python
     weather_conditions = ['rainy', 'snowing', 'cloudy','sunny','foggy']
 
-    ```
+    for condition in weather_conditions:
+      print condition
 
-    ```python
-    provinces = ['BC', 'AB', 'SK','MB','ON','QC','NL,','NB','NS','PE','YT','NT','NU']
+         ```
 
-   ```
-   ```python
-to_do_list = ['Water plants','Clean bathroom','Buy shoes','Solve climate change']
+    Perform some math on each item in the list:
+         ```python
+        numbers = [5,11,66,22.5]
 
-     ```
-
-   ```python
-prime_numbers = [2,3,5,7,11,13]
-
-  ```
-
-    In python, the items in the list can be different data types.
-
-    ```python
-    different_data_types = [3.14,'Canada', 22/7, 1729]
-
-      ```
-
-  </script>
-</section>
-
-<section class="slide" data-markdown>
-  <script type="text/template">
-    ## Using Lists
-
-    Items in a list can be accessed one at a time.
-
-    They are **indexed** (counted) starting at 0.
-
-    ```python
-     weather_conditions = ['rainy', 'snowing', 'cloudy','sunny','foggy']
+        for number in numbers:
+           result = number * 2
+           print str(number) +' x 2 = ' + str(result)
 
     ```
-    Try these in the python console:
-    ```python
-    weather_conditions[0]
-    weather_conditions[3]
-    weather_conditions[10]
-   ```
 
-   What Happened?
+    </script>
+    </section>
 
-    ```python
-    Traceback (most recent call last):
-       File "<input>", line 1, in <module>
-    IndexError: list index out of range
-      ```
-Python cannot find weather_conditions[10] because it does not exist.
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        ## Counting
+
+    As python accesses each item in a list, we can tell it to count how many items it has found.
 
 
-  </script>
-</section>
-
-<section class="slide" data-markdown>
-  <script type="text/template">
-    ## Loops
-
-      One of the most powerful tools we have as programmers is having a computer repeat the same instruction for us many times.
-
-      Python can access each item in a list in order, and do something with each item.
-
-```python
-my_list = ['some','items']
-for member in my_list:
-   # do something
-   # python will do all of this indented code for each item
-
-```
-Print all of the items in the list:
-      ```python
-weather_conditions = ['rainy', 'snowing', 'cloudy','sunny','foggy']
-
-for condition in weather_conditions:
-  print condition
-
-     ```
-
-Perform some math on each item in the list:
-     ```python
-    numbers = [5,11,66,22.5]
-
-    for number in numbers:
-       result = number * 2
-       print str(number) +' x 2 = ' + str(result)
-
-```
-
-</script>
-</section>
-
-<section class="slide" data-markdown>
-  <script type="text/template">
-    ## Counting
-
-As python accesses each item in a list, we can tell it to count how many items it has found.
+    We can add `1` to the current value of a variable, and assign it back to the same variable. Python processes everything to the right of the `=` before assigning the result.
 
 
-We can add `1` to the current value of a variable, and assign it back to the same variable. Python processes everything to the right of the `=` before assigning the result.
+    Count the number of items on your to-do list:
+          ```python
+    number_of_todos = 0
+    to_do_list = ['Water plants', 'Clean bathroom','Sweep floors','Buy Coffee','Organise books','Write a novel']
 
+    for todos in to_do_list:
+      number_of_todos = number_of_todos + 1
 
-Count the number of items on your to-do list:
-      ```python
-number_of_todos = 0
-to_do_list = ['Water plants', 'Clean bathroom','Sweep floors','Buy Coffee','Organise books','Write a novel']
-
-for todos in to_do_list:
-  number_of_todos = number_of_todos + 1
-
-print number_of_todos
-     ```
+    print number_of_todos
+         ```
 
 
 
 
-  </script>
-</section>
+      </script>
+    </section>
 
 
-<section class="slide" data-markdown>
-  <script type="text/template">
-    ## EXERCISE 4: SMART LOOPS (20 MINS)
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        ## EXERCISE 4: SMART LOOPS (20 MINS)
 
-    Combine what you learned earlier about variables and conditionals (**if** statements) with what you just learned about loops.
+        Combine what you learned earlier about variables and conditionals (**if** statements) with what you just learned about loops.
 
-    Open the file `ex4_smart_loops.py`.
+        Open the file `ex4_smart_loops.py`.
 
-    The file contains a list with a lot of numbers in it.
+        The file contains a list with a lot of numbers in it.
 
-    * count how many items are less than 50, and print it to the console
-    * count how many items are both greater than 500 and less than 1000, and print it to the console
-    * BONUS: count how many items are odd numbers, and print it to the console
-    (hint : https://docs.python.org/2/reference/expressions.html#binary-arithmetic-operations)
+        * count how many items are less than 50, and print it to the console
+        * count how many items are both greater than 500 and less than 1000, and print it to the console
+        * BONUS: count how many items are odd numbers, and print it to the console
+        (hint : https://docs.python.org/2/reference/expressions.html#binary-arithmetic-operations)
 
-  </script>
-</section>
+      </script>
+    </section>
 
-<section class="slide title full-monty">
-  <!-- Mandatory Monty Python reference -->
-  <h1 class="heading-bg"><span>And now for something completely different</span></h1>
+    <section class="slide title full-monty">
+      <!-- Mandatory Monty Python reference -->
+      <h1 class="heading-bg"><span>And now for something completely different</span></h1>
 
-  <aside>Source: <a href="https://www.flickr.com/photos/nerdcoreblog/13995269592/">flickr.com/photos/nerdcoreblog</a></aside>
-</section>
+      <aside>Source: <a href="https://www.flickr.com/photos/nerdcoreblog/13995269592/">flickr.com/photos/nerdcoreblog</a></aside>
+    </section>
 
-<!-- -------------------- -->
-<!-- Opening a file -->
-<!-- -------------------- -->
+    <!-- -------------------- -->
+    <!-- Opening a file -->
+    <!-- -------------------- -->
 
 
     <section class="slide" data-markdown>
