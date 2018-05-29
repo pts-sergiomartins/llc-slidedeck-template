@@ -962,25 +962,21 @@
       <script type="text/template">
         ## Counting
 
-    As python accesses each item in a list, we can tell it to count how many items it has found.
+        As python accesses each item in a list, we can tell it to count how many items it has found.
 
+        We can add `1` to the current value of a variable, and assign it back to the same variable. Python processes everything to the right of the `=` before assigning the result.
 
-    We can add `1` to the current value of a variable, and assign it back to the same variable. Python processes everything to the right of the `=` before assigning the result.
+        Count the number of items on your to-do list:
 
+        ```python
+        number_of_todos = 0
+        to_do_list = ['Water plants', 'Clean bathroom','Sweep floors','Buy Coffee','Organise books','Write a novel']
 
-    Count the number of items on your to-do list:
-          ```python
-    number_of_todos = 0
-    to_do_list = ['Water plants', 'Clean bathroom','Sweep floors','Buy Coffee','Organise books','Write a novel']
+        for todos in to_do_list:
+            number_of_todos = number_of_todos + 1
 
-    for todos in to_do_list:
-      number_of_todos = number_of_todos + 1
-
-    print(number_of_todos)
-         ```
-
-
-
+        print(number_of_todos)
+        ```
 
       </script>
     </section>
@@ -1045,8 +1041,8 @@
         When you open a file using the "with" syntax, that creates a new block and the file will be closed automatically for you as soon as you exit the block.
 
         ```python
-         with open('llc-chapters.csv') as chapters:
-             print(chapters.read())
+        with open('llc-chapters.csv') as chapters:
+            print(chapters.read())
 
         ```
 
@@ -1067,9 +1063,9 @@
 
         ```python
         with open('llc-chapters.csv') as chapters:
-             print(chapters.readline())
-             print(chapters.readline())
-             print(chapters.readline())
+            print(chapters.readline())
+            print(chapters.readline())
+            print(chapters.readline())
         ```
       </script>
     </section>
@@ -1107,7 +1103,7 @@
         ```python
         with open('llc-chapters.csv') as chapters:
             for line in chapters:
-                print(line)
+               print(line)
 
         ```
 
