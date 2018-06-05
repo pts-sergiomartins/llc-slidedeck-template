@@ -1010,16 +1010,7 @@
         # Bonus: count how many numbers are odd
       ```
 
-
-
       </script>
-    </section>
-
-    <section class="slide title">
-      <h1 class="heading"><span>End of session #2</span></h1>
-      <p>
-        <h2>Thank you!</h2>
-      </p>
     </section>
 
     <!-- -------------------- -->
@@ -1140,7 +1131,7 @@
 
         So far, we've been writing all our code in the console or in one file. When you use a library, you don't want to copy all that code into your file, otherwise it would become huge!
 
-        Instead, **import** the functions and other structures from a **module** to use the code without actually adding all of the code into your file.
+        Instead, **import** the functions and other structures from a **module** to use that code without actually adding all of that code into your file.
 
 
         ```python
@@ -1169,13 +1160,13 @@
         ```
         import csv
         with open('llc-chapters.csv') as chapters_file:
-            chapters_data = csv.DictReader(chapters_file)
+            chapters_data = list(csv.DictReader(chapters_file))
         ```
 
-        Now, we can pull out one row at a time.
+        Now, print the first line
 
         ```
-            chapter = next(chapters_data)
+            chapter = chapters_data[0]
             print(chapter)
         ```
 
@@ -1188,7 +1179,7 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Dictionaries
+        # Dictionaries
 
         Python used `DictReader` to read a row in the file and transform it into a **dictionary**, a bunch of *key: value pairs*.
 
@@ -1207,6 +1198,11 @@
 
         >  **Province**: 'BC'
 
+        What headings did this CSV have (what keys does this dictionary have)?
+
+        ```python
+        print(chapter.keys())
+        ```
 
         Python can 'look up' each value in a row just as you would the meaning of the word *python*.
 
@@ -1232,7 +1228,7 @@
         ```python
         import csv
         with open('llc-chapters.csv') as chapters_file:
-            chapters = csv.DictReader(chapters_file)
+            chapters = list(csv.DictReader(chapters_file))
             for chapter in chapters:
                print(chapter['City'] + ', ' + chapter['Province'])
                print(chapter['Chapter Lead(s)'])
@@ -1291,6 +1287,7 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
+        # TODO(Sergio): use "in" instead of .find() for this slide and exercises
         ## Finding a word in a string
 
         So far, we've compared entire strings to each other `"Python" == "Python"`. But what if you want to find a word inside an existing string?
