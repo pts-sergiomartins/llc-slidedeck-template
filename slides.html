@@ -1112,7 +1112,7 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Libraries
+        # Libraries
 
         Python has many useful built in **libraries** &mdash; collections of pre-written code.
 
@@ -1287,27 +1287,44 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # TODO(Sergio): use "in" instead of .find() for this slide and exercises
         ## Finding a word in a string
 
         So far, we've compared entire strings to each other `"Python" == "Python"`. But what if you want to find a word inside an existing string?
 
-        The `.find()` function can be used with `str` types to tell you where the specific string appears according to its **index**.  The index is the numbered position in which it appears.  **Important**: the index starts at 0.
-
-        In the first example below, "Code" has an index of 16 instead of 17.  Why? <span class="delayed">index starts at 0</span>
+        The `in` keyword can be used with `str` types to tell you if a specific string appears or not.
 
         ```python
-        >>> "Ladies Learning Code".find("Code")
-        16
-        >>> title = "National Learn to Code Day"
-        >>> title.find("Code")
-        18
-        >>> title.find("code")
-        -1
+        >>> "Code" in "Ladies Learning Code"
+        True
         ```
 
-        The `.find()` function is case-sensitive – it will only match the *exact* string you pass to  it.
-        *<!-- .element: class="footnote" --> When we said computers require **exact** instructions, we meant it!*
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        ## Finding a word in a string
+
+        So far, we've compared entire strings to each other `"Python" == "Python"`. But what if you want to find a word inside an existing string?
+
+        The `in` keyword can be used with `str` types to tell you if a specific string appears or not.
+
+        ```python
+        >>> "Code" in "Ladies Learning Code"
+        True
+        >>> title = "National Learn to Code Day"
+        >>> "Code" in title
+        True
+        >>> "code" in title
+        False
+        ```
+
+        Strings are always case-sensitive – the strings have to match **exactly**
+
+        <span class="delayed">
+          - When we said computers require **exact** instructions, we meant it!
+        </span>
+
       </script>
     </section>
 
@@ -1317,18 +1334,16 @@
 
         In the **llc-chapters.csv** file, the `&` character is used to separate the co-lead names.
 
-        You can use `.find()` to look for a string within a string, to figure out which cities have co-leads.
-
-        Remember, `.find()` returns the index of the search string in the other string **or** `-1` to signal nothing was found. Try using the `>=` operator to determine if the string was found.
+        You can use `in` to figure out which cities have co-leads. For example:
 
         ```python
          leads = "Nancy & Cassie"
-         if leads.find("&") >= 0:
+         if "&" in leads:
              print(leads + " are co-leads")
 
         ```
 
-        Create a new file in the **exercises** folder called `ex5_coleaders.py`, and use what you've learned so far to find which chapter cities have co-leads.
+        Create a new file called `ex5_coleaders.py` and use what you've learned so far to figure out which chapter cities have co-leads.
 
         * Print a list of cities with co-leads
         * Count how many chapters have co-leads
@@ -1361,7 +1376,7 @@
 <!-- -------------------- -->
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Final Exercise!
+        ## TODO(Dorian): Final Exercise!
 
         In order to promote **National Learn to Code Day**, and measure its success relative to 2015, we'll need some stats:
 
