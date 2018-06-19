@@ -1828,37 +1828,6 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Sorting Dictionaries
-
-        * Recall dictionaries
-
-        ```python
-        # a dictionary of names with ages
-        people = [
-          {'name': 'Ali', 'age': 42},
-          {'name': 'Zoe', 'age': 24},
-          {'name': 'Anne', 'age': 33},
-        ]
-        ```
-
-        To sort this list, python needs to know *how* we want it sorted. By which *key* should python sort?
-
-        We'll use the `operator` library to help us:
-
-        ```python
-        >>> import operator
-
-        >>> sorted(people, key=operator.itemgetter('name'))
-        [{'age': 42, 'name': 'Ali'}, {'age': 33, 'name': 'Anne'}, {'age': 24, 'name': 'Zoe'}]
-        ```
-
-        Can you sort the list by age?
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
         ## Recap
 
         * Add to a list with `.append()`
@@ -1878,6 +1847,22 @@
         1. Sort the list of attendees in the CSV by last name.
         1. Find out how many attendees will be coming.
         1. *Bonus* Given 3 volunteers, how can we divide up the names into 3 groups?
+
+        To get you started:
+
+        ```python
+        import csv
+        import operator
+
+        with open('names.csv') as names_file:
+            attendees = list(csv.DictReader(names_file))
+
+        # Sort the list by last name
+
+        # How many people are attending?
+
+        # *Bonus* divide the names into 3 equal groups
+        ```
 
       </script>
    </section>
