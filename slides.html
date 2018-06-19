@@ -1775,28 +1775,84 @@
 
         ```python
         # a dictionary of names with ages
-        >>> d = {"Ali": 42, "Anne": 33, "Zoe": 24}
-
-        >>> import operator
-        # itemgetter() fetches the n-th element (here 1) in an iterable object
-        >>> sorted_d = sorted(d.items(), key=operator.itemgetter(1))
-
-        # sorted_d is a list of tuples, ordered by the value age
-
-        >>> print(sorted_d)
-        [('Zoe', 24), ('Anne', 33), ('Ali', 42)]
+        people = [
+          {'name': 'Ali', 'age': 42},
+          {'name': 'Zoe', 'age': 24},
+          {'name': 'Anne', 'age': 33},
+        ]
         ```
 
-        * Transform sorted_d object back into a dictionary:
+        To sort this list, python needs to know *how* we want it sorted. By which *key* should python sort?
+
+        We'll use the `operator` library to help us:
 
         ```python
-        >>> from collections import OrderedDict
+        import operator
 
-        # create an ordered dictinary from the above list of tuples
-        >>> ordered_dictionary = OrderedDict(sorted_d)
-        >>> print(ordered_dictionary)
-        OrderedDict([('Zoe', 24), ('Anne', 33), ('Ali', 42)])
+        sorted(people, key=operator.itemgetter('name'))
         ```
+
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        ## Sorting Dictionaries
+
+        * Recall dictionaries
+
+        ```python
+        # a dictionary of names with ages
+        people = [
+          {'name': 'Ali', 'age': 42},
+          {'name': 'Zoe', 'age': 24},
+          {'name': 'Anne', 'age': 33},
+        ]
+        ```
+
+        To sort this list, python needs to know *how* we want it sorted. By which *key* should python sort?
+
+        We'll use the `operator` library to help us:
+
+        ```python
+        >>> import operator
+
+        >>> sorted(people, key=operator.itemgetter('name'))
+        [{'age': 42, 'name': 'Ali'}, {'age': 33, 'name': 'Anne'}, {'age': 24, 'name': 'Zoe'}]
+        ```
+
+        Can you sort the list by age?
+
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        ## Sorting Dictionaries
+
+        * Recall dictionaries
+
+        ```python
+        # a dictionary of names with ages
+        people = [
+          {'name': 'Ali', 'age': 42},
+          {'name': 'Zoe', 'age': 24},
+          {'name': 'Anne', 'age': 33},
+        ]
+        ```
+
+        To sort this list, python needs to know *how* we want it sorted. By which *key* should python sort?
+
+        We'll use the `operator` library to help us:
+
+        ```python
+        >>> import operator
+
+        >>> sorted(people, key=operator.itemgetter('name'))
+        [{'age': 42, 'name': 'Ali'}, {'age': 33, 'name': 'Anne'}, {'age': 24, 'name': 'Zoe'}]
+        ```
+
+        Can you sort the list by age?
 
       </script>
     </section>
@@ -1806,8 +1862,8 @@
         ## Recap
 
         * Add to a list with `.append()`
-        * `len()` gies you the length of something
-        * `sorted()` sort a list of things for you
+        * `len()` tells you the length of something
+        * `sorted()` sort anything
 
       </script>
     </section>
