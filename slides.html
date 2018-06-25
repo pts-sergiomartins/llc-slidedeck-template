@@ -1875,44 +1875,32 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Bonus Exercises: Open Data
+        # Review Bonus Exercise
 
-        If you want to explore different data, there are lots available for public use. The Government of Canada has many data sets available. Here are a few [suggested data sets](https://docs.google.com/spreadsheets/d/14fFZPKrb0RrKpjiAQYshwT3iYkTRGKeeFcpz3r8m8Qg)
-        including registered charities, population estimates, consumer price data, and more.
+        ```python
+        import csv
+        import operator
 
-        **Pro tip!** Open the data in program like Excel or [LibreOffice Calc](https://www.libreoffice.org/) to see the data.
+        with open('names.csv') as names_file:
+            attendees = list(csv.DictReader(names_file))
 
-        * Can you identify any interesting patterns?
-        * What are you interested in learning from the data?
-        * What do you want the output to be?
+        # Sort the list by last name
+        sorted_attendees = sorted(attendees, key=operator.itemgetter('lastname'))
+        print(sorted_attendees)
 
-        So far we've seen examples where the output goes to the screen, but you might simply want to filter out a smaller
-        set of results and write them back to a new CSV (see `reference/writing_csv.py` for an example).
+        # How many people are attending?
+        number_of_attendees = len(attendees)
+        print(number_of_attendees)
 
-        Take the consumer vehicle [Fuel Consumption Ratings](http://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64).
-        You could filter out all the vehicles that require less than 10l per 100km (cheaper and greener cars).
+        # *Bonus* divide the names into 3 equal groups
+
+        ```
 
       </script>
     </section>
 
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Things we didn't cover
-
-        ### Writing results to a CSV file
-
-        * Just like `DictReader` there's a `DictWriter` in the csv package
-        * Gather data then write out the headers and data to a file
-        * Useful for filtering a big set of data down to something you can analyse in a spreadsheet program
-        * See `reference/writing_csv.py`
-
-        ### Reading files in other languages (like French)
-
-        * Python 2.x defaults to ASCII (very basic letters and numbers)
-        * Most text on the internet with accents or foreign characters (Arabic, Chinese, etc.) are represented in [Unicode](http://www.w3.org/International/questions/qa-what-is-encoding.en)
-        * You can install the [unicodecsv](https://pypi.python.org/pypi/unicodecsv/0.13.0) package with [pip](http://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/) and it will read and write CSV files containing accents and other characters
-
-      </script>
+    <section class="slide">
+      <iframe width="854" height="480" src="https://www.youtube.com/embed/01SF8V_GtIw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </section>
 
     <section class="slide" data-markdown>
@@ -1921,20 +1909,18 @@
 
         ### Tutorials/Courses:
 
-        * [The (Official) Python Tutorial](http://docs.python.org/2.7/tutorial/)
-        * [Full Stack Python](http://www.fullstackpython.com)
-        * [Udacity - Learn Object Oriented Python](http://www.udacity.com/course/programming-foundations-with-python--ud036)
+        * [The (Official) Python Tutorial](https://docs.python.org/3.6/tutorial/)
+        * [Code Academy](https://www.codecademy.com/learn/learn-python)
+        * [Learn Python the Hard Way™](https://www.learnpythonthehardway.org/)
 
         ### Web Development with Python:
 
-        * [Django](https://www.djangoproject.com/)
         * [Hello Web App](https://www.hellowebapp.com/)
         * [Flask](http://flask.pocoo.org/)
 
-        ### Other:
+        ### The Holy Grail:
+        <span class="delayed">> [Google](https://google.ca/)</span>
 
-        * [Raspberry pi](https://www.raspberrypi.org/)
-        * [mySQL connector](http://dev.mysql.com/doc/connector-python/en/)
       </script>
     </section>
 
@@ -1947,474 +1933,50 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Toronto Housing Prices Excercise
+        # Final Exercise
 
-        ### We'll use Python to:
-
-        * Open a CSV with housing prices from all over Canada
-        * Filter the list to only prices from the GTA
-        * Filter by other criteria
-        * Look at housing prices over the years
-
-        ![](framework/img/workshop/graph-increasing.png)
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        Download this CSV file
-
-        # https://tinyurl.com/ybybd694
-
+        ## Let's take what we've learned so far and write a Pig Latin translator.
         <br />
+        Pig Latin is a language game, where you move the first letter of the word to the end and add "ay." So "Python" becomes "ythonpay." To write a Pig Latin translator in Python, here are the steps we'll need to take:
 
-        ![](framework/img/workshop/download-housing-price-csv.png)
-
-        Inside is 1 .csv file. Copy it to the same folder as your .py files
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ```python
-        import csv
-
-        with open('03270046-eng.csv', 'r') as csv_file:
-            csv_rows = csv.DictReader(csv_file)
-            list_of_rows = list(csv_rows)
-
-        len(list_of_rows)
-        ```
+        1. Ask the user to input a word in English.
+        1. Make sure the user entered a valid word.
+        1. Convert the word from English to Pig Latin.
+        1. Display the translation result.
 
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        ## Toronto Housing Prices Excercise
+        # Final Exercise
 
         ```python
-        >>> import csv
-        >>>
-        >>> with open('03270046-eng.csv', 'r') as csv_file:
-        ...     csv_rows = csv.DictReader(csv_file)
-        ...     list_of_rows = list(csv_rows)
-        ...
-        >>> len(list_of_rows)
-        41076
+        TODO(Sabina): Getting-started code
         ```
 
       </script>
     </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ```python
-        import csv
-
-        with open('03270046-eng.csv', 'r') as csv_file:
-            csv_rows = csv.DictReader(csv_file)
-            list_of_rows = list(csv_rows)
-
-        for row in list_of_rows:
-            if row['GEO'] == 'Toronto and Oshawa, Ontario':
-               print(row)
-        # This will print A LOT of rows!
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ```python
-        import csv
-
-        with open('03270046-eng.csv', 'r') as csv_file:
-            csv_rows = csv.DictReader(csv_file)
-            list_of_rows = list(csv_rows)
-
-        toronto_and_oshawa = []
-        for row in list_of_rows:
-            if row['GEO'] == 'Toronto and Oshawa, Ontario':
-               toronto_and_oshawa.append(row)
-        ```
-
-        We just made a new list!
-
-        ```python
-
-        >>> len(toronto_and_oshawa)
-        1296
-
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### How many items?
-
-        ```python
-        >>> len(toronto_and_oshawa)
-        1296
-        ```
-
-        ### Indexing
-        ```python
-        >>> toronto_and_oshawa[0]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '1981/01', 'Vector': 'v53600467', 'Value': '38.9', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### How many items?
-
-        ```python
-        >>> len(toronto_and_oshawa)
-        1296
-        ```
-
-        ### Indexing
-        ```python
-        >>> toronto_and_oshawa[0]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '1981/01', 'Vector': 'v53600467', 'Value': '38.9', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        >>> toronto_and_oshawa[1]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '1981/02', 'Vector': 'v53600467', 'Value': '39.5', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### How many items?
-
-        ```python
-        >>> len(toronto_and_oshawa)
-        1296
-        ```
-
-        ### Indexing
-        ```python
-        >>> toronto_and_oshawa[0]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '1981/01', 'Vector': 'v53600467', 'Value': '38.9', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        >>> toronto_and_oshawa[1]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '1981/02', 'Vector': 'v53600467', 'Value': '39.5', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        >>> toronto_and_oshawa[418]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '2015/11', 'Vector': 'v53600467', 'Value': '128.2', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### How many items?
-
-        ```python
-        >>> len(toronto_and_oshawa)
-        1296
-        ```
-
-        ### Indexing
-        ```python
-        >>> toronto_and_oshawa[0]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '1981/01', 'Vector': 'v53600467', 'Value': '38.9', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        >>> toronto_and_oshawa[1]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '1981/02', 'Vector': 'v53600467', 'Value': '39.5', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        >>> toronto_and_oshawa[418]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '2015/11', 'Vector': 'v53600467', 'Value': '128.2', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-
-        >>> toronto_and_oshawa[4000]
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### How many items?
-
-        ```python
-        >>> len(toronto_and_oshawa)
-        1296
-        ```
-
-        ### Indexing
-        ```python
-        >>> toronto_and_oshawa[0]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '1981/01', 'Vector': 'v53600467', 'Value': '38.9', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        >>> toronto_and_oshawa[1]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '1981/02', 'Vector': 'v53600467', 'Value': '39.5', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-        >>> toronto_and_oshawa[418]
-        {'INDEX': 'Total (house and land)', 'Ref_Date': '2015/11', 'Vector': 'v53600467', 'Value': '128.2', 'Coordinate': '16.1', 'Geographical classification': '35535, 35532', 'GEO': 'Toronto and Oshawa, Ontario'}
-
-        >>> toronto_and_oshawa[4000]
-        Traceback (most recent call last):
-          File "<stdin>", line 1, in <module>
-        IndexError: list index out of range
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### Lets filter more!
-
-        The CSV measures property value 3 different ways
-
-        * "House only"
-        * "Land only"
-        * "Total (house and land)"
-
-        Filter by 1 of these values
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### Excercise: Make a new list containing only the Land prices
-
-        ```python
-        {
-            "Coordinate": "16.1",
-            "GEO": "Toronto and Oshawa, Ontario",
-            "Geographical classification": "35535, 35532",
-            "INDEX": "Total (house and land)",
-            "Ref_Date": "2015/11",
-            "Value": "128.2",
-            "Vector": "v53600467"
-        }
-        ```
-
-        ```python
-        # Make a new list called land_only_prices
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### Make a new list containing only the Land prices
-
-        ```python
-        {
-            "Coordinate": "16.1",
-            "GEO": "Toronto and Oshawa, Ontario",
-            "Geographical classification": "35535, 35532",
-            "INDEX": "Total (house and land)",
-            "Ref_Date": "2015/11",
-            "Value": "128.2",
-            "Vector": "v53600467"
-        }
-        ```
-
-        ```python
-        # Make a new list called land_only_prices
-
-        land_only_prices = []
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### Make a new list containing only the Land prices
-
-        ```python
-        {
-            "Coordinate": "16.1",
-            "GEO": "Toronto and Oshawa, Ontario",
-            "Geographical classification": "35535, 35532",
-            "INDEX": "Total (house and land)",
-            "Ref_Date": "2015/11",
-            "Value": "128.2",
-            "Vector": "v53600467"
-        }
-        ```
-
-        ```python
-        # Make a new list called land_only_prices
-
-        land_only_prices = []
-        for row in toronto_and_oshawa:
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### Make a new list containing only the Land prices
-
-        ```python
-        {
-            "Coordinate": "16.1",
-            "GEO": "Toronto and Oshawa, Ontario",
-            "Geographical classification": "35535, 35532",
-            "INDEX": "Total (house and land)",
-            "Ref_Date": "2015/11",
-            "Value": "128.2",
-            "Vector": "v53600467"
-        }
-        ```
-
-        ```python
-        # Make a new list called land_only_prices
-
-        land_only_prices = []
-        for row in toronto_and_oshawa:
-            if row["INDEX"] == "Land only":
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Toronto Housing Prices Excercise
-
-        ### Make a new list containing only the Land prices
-
-        ```python
-        {
-            "Coordinate": "16.1",
-            "GEO": "Toronto and Oshawa, Ontario",
-            "Geographical classification": "35535, 35532",
-            "INDEX": "Total (house and land)",
-            "Ref_Date": "2015/11",
-            "Value": "128.2",
-            "Vector": "v53600467"
-        }
-        ```
-
-        ```python
-        # Make a new list called land_only_prices
-
-        land_only_prices = []
-        for row in toronto_and_oshawa:
-            if row["INDEX"] == "Land only":
-               land_only_prices.append(row)
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Excercise:
-
-        * Print me the list of land prices for the year 2011
-
-        ```python
-        for row in land_only_prices:
-            # ... fill this in ...
-
-        ```
-
-        Output:
-
-        ```
-        100.5
-        100.5
-        100.5
-        100.5
-        101.1
-        101.3
-        101.6
-        101.9
-        102.2
-        102.5
-        103.3
-        103.6
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Excercise:
-
-        * Print me the list of land prices for the year 2011
-
-        ```python
-        for row in land_only_prices:
-            if row["Ref_Date"].find("2011") > -1:
-               print(row["Value"])
-        ```
-
-        Output:
-
-        ```
-        100.5
-        100.5
-        100.5
-        100.5
-        101.1
-        101.3
-        101.6
-        101.9
-        102.2
-        102.5
-        103.3
-        103.6
-        ```
-
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        ## Excercises:
-
-        1. Print me the price for January of each year
-        1. What's the average price across all rows?
-        1. Which year/month had the highest price?
-
-      </script>
-    </section>
-
 
     <section class="slide welcome highlight last">
       <h1><img class="logo-stacked" src="framework/img/llc-logo-stacked-white.png" alt="Ladies Learning Code logo">Thanks to</h1>
+      <!-- Only 2 names at a time! Don't ask me why -->
+      <h2>Volunteers</h2>
+      <p>
+        <h3 style="left:200px">Bruk Habtu</h3>
+        <h3>Dorian Pula</h3>
+      </p>
+      <h2>
+      <p>
+        <h3>Sabina Stanescu</h3>
+        <h3>Sergio Martins</h3>
+      </p>
+      <h2>
+      <p>
+        <h3>Yele Bonilla</h3>
+      </p>
+      <hr />
+
       <!-- Only 2 names at a time! Don't ask me why -->
       <h2>Slides</h2>
       <p>
